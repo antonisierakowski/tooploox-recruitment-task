@@ -1,5 +1,6 @@
 import { all } from 'redux-saga/effects';
+import { notificationSaga } from './notifications/sagas';
 
 export function* rootSaga() {
-  yield all([]);
+  yield all([notificationSaga()]);
 }
