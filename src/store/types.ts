@@ -2,7 +2,7 @@ import { GhUserState } from './ghUser/types';
 import { NotificationsState } from './notifications/types';
 
 export interface RootState {
-  // ghUserState: GhUserState;
+  ghUserState: GhUserState;
   notificationsState: NotificationsState;
 }
 

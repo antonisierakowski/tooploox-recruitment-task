@@ -1,4 +1,4 @@
-import { Reducer } from 'react';
+import { Reducer } from 'redux';
 import { NotificationsState } from './types';
 import { Action } from '../types';
 import { CREATE_NOTIFICATION_SUCCESS, REMOVE_NOTIFICATION } from './constants';
