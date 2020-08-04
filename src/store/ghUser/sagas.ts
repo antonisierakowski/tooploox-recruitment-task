@@ -24,6 +24,7 @@ export function* onSearchUserData({
       httpClient,
       userName,
     );
+    // todo if user is not found search it https://api.github.com/search/users?q=antoni%20sierakowski, get the first result and retry the whole saga. avoid loop somehow.
     const reposResponse = yield call(
       requests.searchUserRepositories,
       httpClient,

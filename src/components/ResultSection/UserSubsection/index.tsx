@@ -6,7 +6,7 @@ import { UserNameHeader } from './UserNameHeader';
 
 export const UserSubsection: React.FC = (): React.ReactElement => (
   <>
-    <div>
+    <div className={styles.nameAndAvatar}>
       <UserAvatar />
       <UserNameHeader />
     </div>

@@ -4,5 +4,9 @@ import { useUserAvatarUrl } from '../../hooks/useUserAvatarUrl';
 
 export const UserAvatar: React.FC = (): React.ReactElement => {
   const url = useUserAvatarUrl();
-  return <img alt="Github user avatar" src={url} />;
+  return (
+    <div className={styles.imageContainer}>
+      <img alt="Github user avatar" src={url} className={styles.image} />
+    </div>
+  );
 };
