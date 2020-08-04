@@ -20,7 +20,7 @@ export const selectCurrentGhUserRepositories = (
   state: RootState,
 ): GhRepository[] => selectGhUserState(state).repositories;
 
-export const selectCurrentGhUserRepository = (state: RootState, id: string) => {
+export const selectCurrentGhUserRepository = (state: RootState, id: number) => {
   const repositories = selectCurrentGhUserRepositories(state);
   return repositories.find(repo => repo.id === id);
 };

@@ -2,6 +2,7 @@ import * as Axios from 'axios';
 import * as exceptions from './exceptions';
 import { StatusCode } from './types';
 import { HttpClientInterface } from './interface';
+import { GITHUB_BASE_DOMAIN } from '../../constants';
 
 export const __axiosInstance = Axios.default.create({
   baseURL: GITHUB_BASE_DOMAIN,
