@@ -1,0 +1,23 @@
+.notification {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  pointer-events: all;
+  width: 100%;
+  border: 1px solid black;
+}
+
+.notificationText.notificationText {
+  margin-left: 10px;
+}
+
+.notificationBody {
+  display: flex;
+  align-items: center;
+}
+
+.closeIcon {
+  cursor: pointer;
+}
