@@ -15,6 +15,11 @@
   &::placeholder {
     color: $text-placeholder-color;
   }
+
+  &:focus {
+    outline: none;
+    background-color: $input-bg-color-focused;
+  }
 }
 
 .inputWithIcon {

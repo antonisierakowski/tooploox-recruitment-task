@@ -13,6 +13,7 @@ $silver-chalice: #9E9E9E;
 // derived shades - use these in other stylesheets
 
 $accent-color: $electric-violet;
+$accent-color-active: darken($accent-color, 4);
 $text-primary-color: $mine-shaft-black;
 $text-secondary-color: $grey;
 $background-color: $catskill-white;
@@ -23,4 +24,5 @@ $border-color: $grey;
 $shadow-color: $grey;
 $button-caption-color: $plain-white;
 $input-bg-color: $porcelain-white;
+$input-bg-color-focused: darken($input-bg-color, 2);
 $text-placeholder-color: $silver-chalice;

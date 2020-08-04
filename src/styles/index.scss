@@ -15,6 +15,10 @@ body {
   box-sizing: border-box;
 }
 
+*:focus {
+  outline: 1px $link-color dotted;
+}
+
 p, span {
   color: $text-secondary-color;
   margin: 0;
