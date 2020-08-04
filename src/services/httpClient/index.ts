@@ -1,12 +1,13 @@
 import * as Axios from 'axios';
 import * as exceptions from './exceptions';
 import { StatusCode } from './types';
+import { HttpClientInterface } from './interface';
 
 export const __axiosInstance = Axios.default.create({
   baseURL: GITHUB_BASE_DOMAIN,
 });
 
-export class HttpClient {
+export class HttpClient implements HttpClientInterface {
   private static instance: HttpClient;
   private axiosInstance: Axios.AxiosInstance;
 
