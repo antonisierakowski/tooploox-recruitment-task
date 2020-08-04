@@ -1,7 +1,15 @@
-import { takeEvery, put } from 'redux-saga/effects';
+import { takeEvery, put, call } from 'redux-saga/effects';
 import { SEARCH_USER_DATA } from './constants';
 import { Action } from '../types';
-import { searchUserDataFailure, SearchUserDataPayload } from './actions';
+import {
+  searchUserDataFailure,
+  SearchUserDataPayload,
+  searchUserDataSuccess,
+} from './actions';
+import { handleRequestError } from '../utils';
+import httpClient from '../../services/httpClient';
+import * as requests from '../../services/httpClient/requests';
+import { mapGhRepositoriesToDomain, mapGhUserToDomain } from './mapper';
 
 export function* ghUserSaga() {
   yield takeEvery(SEARCH_USER_DATA, onSearchUserData);
@@ -11,9 +19,26 @@ export function* onSearchUserData({
   payload: { userName },
 }: Action<SearchUserDataPayload>) {
   try {
-    // todo make requests
+    const userResponse = yield call(
+      requests.searchUserData,
+      httpClient,
+      userName,
+    );
+    const reposResponse = yield call(
+      requests.searchUserRepositories,
+      httpClient,
+      userName,
+    );
+    const userMapped = mapGhUserToDomain(userResponse);
+    const reposMapped = mapGhRepositoriesToDomain(reposResponse);
+    yield put(
+      searchUserDataSuccess({
+        user: userMapped,
+        repositories: reposMapped,
+      }),
+    );
   } catch (error) {
     yield put(searchUserDataFailure());
-    // todo error handling
+    handleRequestError(error);
   }
 }
