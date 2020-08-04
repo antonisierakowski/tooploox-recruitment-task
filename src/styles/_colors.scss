@@ -1,0 +1,22 @@
+// general shades - do not use them directly in other stylesheets
+
+$plain-white: #FFFFFF;
+$electric-violet: #5600E4;
+$grey: #828282;
+$mine-shaft-black: #212121;
+$dodger-blue: #2375F5;
+$porcelain-white: #EFF3F4;
+$catskill-white: #FBFCFD;
+$emperor-grey: #4F4F4F;
+
+// derived shades - use these in other stylesheets
+
+$accent-color: $electric-violet;
+$text-primary-color: $mine-shaft-black;
+$text-secondary-color: $grey;
+$background-color: $catskill-white;
+$secondary-bg-color: $plain-white;
+$icon-color: $emperor-grey;
+$link-color: $dodger-blue;
+$border-color: $grey;
+$shadow-color: $emperor-grey;
