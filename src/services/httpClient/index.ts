@@ -32,6 +32,9 @@ export class HttpClient implements HttpClientInterface {
       case StatusCode.RESOURCE_NOT_FOUND: {
         throw new exceptions.ResourceNotFoundError();
       }
+      case StatusCode.UNPROCESSABLE_ENTITY: {
+        throw new exceptions.UnprocessableEntity();
+      }
       case StatusCode.INTERNAL_ERROR:
       default: {
         throw new exceptions.ApiInternalError();

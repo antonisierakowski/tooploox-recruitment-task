@@ -30,6 +30,13 @@ export function* handleRequestError(error: Error) {
       );
       break;
     }
+    case exceptions.UnprocessableEntity: {
+      yield call(
+        createFailureNotification,
+        notificationMessages.unprocessableEntityError,
+      );
+      break;
+    }
     case exceptions.ApiInternalError:
     default: {
       yield call(

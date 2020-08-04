@@ -4,3 +4,5 @@ export const noConnectionMsg =
   "It seems that you're offline. Please check your internet connection and try again.";
 export const resourceNotFoundError =
   "It seems the user you're trying to find doesn't exist.";
+export const unprocessableEntityError =
+  "There's something wrong with your search phrase. Please make sure it is correct and resubmit.";
