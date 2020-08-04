@@ -5,5 +5,5 @@ import { useUserName } from '../../hooks/useUserName';
 export const UserNameHeader: React.FC = (): React.ReactElement => {
   const userName = useUserName();
 
-  return <h4 className={styles.heading}>{userName}</h4>;
+  return <h3 className={styles.heading}>{userName}</h3>;
 };
