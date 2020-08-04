@@ -1,3 +1,22 @@
 import { GhUser, GhRepository } from './types';
+import {
+  SearchUserRepositoriesResponse,
+  SearchUserResponse,
+} from '../../services/httpClient/requests/types';
 
-// todo this will map api responses to domain objects
+export const mapGhUserToDomain = (response: SearchUserResponse): GhUser => ({
+  userName: response.login,
+  bio: response.bio,
+  url: response.html_url,
+  avatarUrl: response.avatar_url,
+});
+
+export const mapGhRepositoriesToDomain = (
+  response: SearchUserRepositoriesResponse,
+): GhRepository[] =>
+  response.items.map(repo => ({
+    url: repo.html_url,
+    name: repo.name,
+    stars: repo.stargazers_count,
+    id: repo.id,
+  }));
