@@ -1,5 +1,7 @@
 import { RootState } from '../types';
 import { GhRepository, GhUser, GhUserState } from './types';
+import { isEmpty } from 'lodash';
+import { createSelector } from 'reselect';
 
 export const selectGhUserState = (state: RootState): GhUserState =>
   state.ghUserState;
@@ -8,13 +10,13 @@ export const selectCurrentGhUser = (state: RootState): GhUser =>
   selectGhUserState(state).user;
 
 export const selectGhUserName = (state: RootState): string =>
-  selectCurrentGhUser(state).userName;
+  selectCurrentGhUser(state)?.userName;
 
 export const selectAvatarUrl = (state: RootState): string =>
-  selectCurrentGhUser(state).avatarUrl;
+  selectCurrentGhUser(state)?.avatarUrl;
 
 export const selectGhUserBio = (state: RootState): string =>
-  selectCurrentGhUser(state).bio;
+  selectCurrentGhUser(state)?.bio;
 
 export const selectCurrentGhUserRepositories = (
   state: RootState,
@@ -24,3 +26,14 @@ export const selectCurrentGhUserRepository = (state: RootState, id: number) => {
   const repositories = selectCurrentGhUserRepositories(state);
   return repositories.find(repo => repo.id === id);
 };
+
+export const selectShouldRenderResults = createSelector(
+  selectCurrentGhUser,
+  selectCurrentGhUserRepositories,
+  (currentGhUser, currentGhUserRepositories): boolean => {
+    return !(isEmpty(currentGhUser) && isEmpty(currentGhUserRepositories));
+  },
+);
+
+export const selectIsLoading = (state: RootState): boolean =>
+  selectGhUserState(state).isLoading;

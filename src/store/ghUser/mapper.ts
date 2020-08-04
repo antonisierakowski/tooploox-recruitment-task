@@ -5,7 +5,7 @@ import {
 } from '../../services/httpClient/requests/types';
 
 export const mapGhUserToDomain = (response: SearchUserResponse): GhUser => ({
-  userName: response.login,
+  userName: response.name || response.login,
   bio: response.bio,
   url: response.html_url,
   avatarUrl: response.avatar_url,
