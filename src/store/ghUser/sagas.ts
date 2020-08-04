@@ -19,18 +19,22 @@ export function* onSearchUserData({
   payload: { userName },
 }: Action<SearchUserDataPayload>) {
   try {
-    const userResponse = yield call(
-      requests.searchUserData,
+    const { login: userNameResult } = yield call(
+      requests.searchUser,
       httpClient,
       userName,
     );
-    // todo if user is not found search it https://api.github.com/search/users?q=antoni%20sierakowski, get the first result and retry the whole saga. avoid loop somehow.
+    const userResponse = yield call(
+      requests.getUserData,
+      httpClient,
+      userNameResult,
+    );
+    const userMapped = mapGhUserToDomain(userResponse);
     const reposResponse = yield call(
       requests.searchUserRepositories,
       httpClient,
-      userName,
+      userNameResult,
     );
-    const userMapped = mapGhUserToDomain(userResponse);
     const reposMapped = mapGhRepositoriesToDomain(reposResponse);
     yield put(
       searchUserDataSuccess({

@@ -1,4 +1,4 @@
-export interface SearchUserResponse {
+export interface GetUserResponse {
   login: string;
   name: string;
   id: number;
@@ -16,4 +16,13 @@ export interface SearchUserRepositoriesResponse {
     html_url: string;
     stargazers_count: number;
   }[];
+}
+
+export interface SearchUsersResponse {
+  total_count: number;
+  items: UserSearchResult[];
+}
+
+export interface UserSearchResult {
+  login: string;
 }

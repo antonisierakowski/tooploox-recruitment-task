@@ -1,10 +1,10 @@
 import { GhUser, GhRepository } from './types';
 import {
   SearchUserRepositoriesResponse,
-  SearchUserResponse,
+  GetUserResponse,
 } from '../../services/httpClient/requests/types';
 
-export const mapGhUserToDomain = (response: SearchUserResponse): GhUser => ({
+export const mapGhUserToDomain = (response: GetUserResponse): GhUser => ({
   userName: response.name || response.login,
   bio: response.bio,
   url: response.html_url,

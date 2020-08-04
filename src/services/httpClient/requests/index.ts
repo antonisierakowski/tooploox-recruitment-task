@@ -1,12 +1,17 @@
 import { HttpClientInterface } from '../interface';
-import { SearchUserRepositoriesResponse, SearchUserResponse } from './types';
+import {
+  SearchUserRepositoriesResponse,
+  GetUserResponse,
+  SearchUsersResponse,
+  UserSearchResult,
+} from './types';
 
-export const searchUserData = async (
+export const getUserData = async (
   client: HttpClientInterface,
   userName: string,
-): Promise<SearchUserResponse> => {
+): Promise<GetUserResponse> => {
   const endpoint = '/users/%s'.replace('%s', userName);
-  return client.get<SearchUserResponse>(endpoint);
+  return client.get<GetUserResponse>(endpoint);
 };
 
 export const searchUserRepositories = async (
@@ -18,4 +23,16 @@ export const searchUserRepositories = async (
     userName,
   );
   return client.get<SearchUserRepositoriesResponse>(endpoint);
+};
+
+export const searchUser = async (
+  client: HttpClientInterface,
+  userNameQuery: string,
+): Promise<UserSearchResult> => {
+  const endpoint = '/search/users?q=%s&per_page=1&page=1'.replace(
+    '%s',
+    userNameQuery,
+  );
+  const response = await client.get<SearchUsersResponse>(endpoint);
+  return response.items[0];
 };
