@@ -29,8 +29,6 @@ export function* onSearchUserData({
       httpClient,
       userName,
     );
-    console.log(userResponse);
-    console.log(reposResponse);
     const userMapped = mapGhUserToDomain(userResponse);
     const reposMapped = mapGhRepositoriesToDomain(reposResponse);
     yield put(
@@ -40,8 +38,7 @@ export function* onSearchUserData({
       }),
     );
   } catch (error) {
-    console.log(error);
     yield put(searchUserDataFailure());
-    handleRequestError(error);
+    yield handleRequestError(error);
   }
 }
