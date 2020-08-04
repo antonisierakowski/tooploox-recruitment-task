@@ -1,0 +1,8 @@
+@import 'src/styles/colors';
+@import 'src/styles/mixins';
+
+.section {
+  padding: 20px;
+  background: $secondary-bg-color;
+  @include box-shadow();
+}

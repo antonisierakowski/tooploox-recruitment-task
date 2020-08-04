@@ -1,0 +1,27 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.textInput {
+  height: 35px;
+  width: 100%;
+  max-width: 250px;
+  border: none;
+  border-radius: $border-radius-1;
+  color: $text-secondary-color;
+  background-color: $input-bg-color;
+  padding: 0 10px;
+  font-family: inherit;
+
+  &::placeholder {
+    color: $text-placeholder-color;
+  }
+}
+
+.inputWithIcon {
+  padding-left: 30px;
+}
+
+.icon {
+  position: absolute;
+  left: 25px;
+}

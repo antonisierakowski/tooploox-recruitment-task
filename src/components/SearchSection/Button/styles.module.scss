@@ -1,0 +1,13 @@
+@import 'src/styles/colors';
+@import 'src/styles/variables';
+
+.button {
+  height: 35px;
+  border: none;
+  width: 70px;
+  border-radius: $border-radius-1;
+  background-color: $accent-color;
+  color: $button-caption-color;
+  font-weight: 800;
+  font-family: inherit;
+}
