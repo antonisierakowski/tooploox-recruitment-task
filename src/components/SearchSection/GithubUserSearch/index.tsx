@@ -6,12 +6,17 @@ import styles from './styles.module.scss';
 import SearchIcon from '@material-ui/icons/Search';
 
 export const GithubUserSearch = (): React.ReactElement => {
-  const hook = useSearchUserForm();
+  const { onSetSearchValue, onSubmit, searchValue } = useSearchUserForm();
 
   return (
-    <form className={styles.form}>
-      <TextInput placeholder="Search for users" icon={SearchIcon} />
-      <Button caption="Search" />
+    <form className={styles.form} onSubmit={onSubmit}>
+      <TextInput
+        placeholder="Search for users"
+        icon={SearchIcon}
+        value={searchValue}
+        onChange={onSetSearchValue}
+      />
+      <Button caption="Search" onClick={onSubmit} type="submit" />
     </form>
   );
 };

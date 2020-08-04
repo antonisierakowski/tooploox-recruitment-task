@@ -13,7 +13,8 @@ export interface SearchUserDataPayload {
 
 export const searchUserData = (
   payload: SearchUserDataPayload,
-): Action<SearchUserDataPayload> => createAction(SEARCH_USER_DATA);
+): Action<SearchUserDataPayload> =>
+  createAction<SearchUserDataPayload>(SEARCH_USER_DATA, payload);
 
 export interface SearchUserDataSuccessPayload {
   user: GhUser;

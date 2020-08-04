@@ -1,4 +1,4 @@
-import { takeEvery, put, call } from 'redux-saga/effects';
+import { put, call, takeLatest } from 'redux-saga/effects';
 import { SEARCH_USER_DATA } from './constants';
 import { Action } from '../types';
 import {
@@ -12,7 +12,7 @@ import * as requests from '../../services/httpClient/requests';
 import { mapGhRepositoriesToDomain, mapGhUserToDomain } from './mapper';
 
 export function* ghUserSaga() {
-  yield takeEvery(SEARCH_USER_DATA, onSearchUserData);
+  yield takeLatest(SEARCH_USER_DATA, onSearchUserData);
 }
 
 export function* onSearchUserData({
@@ -29,6 +29,8 @@ export function* onSearchUserData({
       httpClient,
       userName,
     );
+    console.log(userResponse);
+    console.log(reposResponse);
     const userMapped = mapGhUserToDomain(userResponse);
     const reposMapped = mapGhRepositoriesToDomain(reposResponse);
     yield put(
@@ -38,6 +40,7 @@ export function* onSearchUserData({
       }),
     );
   } catch (error) {
+    console.log(error);
     yield put(searchUserDataFailure());
     handleRequestError(error);
   }
