@@ -1,3 +1,7 @@
+@import "src/styles/colors";
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .notification {
   padding: 15px;
   display: flex;
@@ -6,10 +10,12 @@
   margin-bottom: 15px;
   pointer-events: all;
   width: 100%;
-  border: 1px solid black;
+  border-radius: $border-radius;
+  background-color: $secondary-bg-color;
+  @include box-shadow();
 }
 
-.notificationText.notificationText {
+.notificationText {
   margin-left: 10px;
 }
 

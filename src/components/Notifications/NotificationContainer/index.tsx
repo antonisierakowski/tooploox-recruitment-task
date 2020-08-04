@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import { useNotifications } from './hook';
 import { Notification } from '../Notification';
 import { Notification as NotificationInterface } from '../../../store/notifications/types';

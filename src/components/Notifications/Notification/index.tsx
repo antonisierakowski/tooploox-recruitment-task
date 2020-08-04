@@ -1,6 +1,6 @@
 import { Error, Done, Info, Close } from '@material-ui/icons';
 import React from 'react';
-import styles from './styles.module.css';
+import styles from './styles.module.scss';
 import { NotificationType } from '../../../store/notifications/types';
 import { useNotification } from './hook';
 
