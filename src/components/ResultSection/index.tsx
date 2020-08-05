@@ -6,24 +6,17 @@ import { useShouldRenderResults } from './hooks/useShouldRenderResults';
 import { LoadingIndicator } from './LoadingIndicator';
 
 export const ResultSection: React.FC = (): React.ReactElement => {
-  const { shouldRenderResults, isLoading } = useShouldRenderResults();
+  const {
+    shouldRenderUserResults,
+    shouldRenderRepositoriesResults,
+    isLoading,
+  } = useShouldRenderResults();
 
-  if (isLoading) {
-    return (
-      <section className={styles.section}>
-        <LoadingIndicator />
-      </section>
-    );
-  }
-
-  if (shouldRenderResults) {
-    return (
-      <section className={styles.section}>
-        <UserSubsection />
-        <ReposSubsection />
-      </section>
-    );
-  }
-
-  return null;
+  return (
+    <section className={styles.section}>
+      {isLoading && <LoadingIndicator />}
+      {shouldRenderUserResults && <UserSubsection />}
+      {shouldRenderRepositoriesResults && <ReposSubsection />}
+    </section>
+  );
 };

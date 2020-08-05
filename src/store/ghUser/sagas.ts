@@ -5,11 +5,13 @@ import {
   searchUserDataFailure,
   SearchUserDataPayload,
   searchUserDataSuccess,
+  searchUserRepositoriesSuccess,
 } from './actions';
 import { handleRequestError } from '../utils';
 import httpClient from '../../services/httpClient';
 import * as requests from '../../services/httpClient/requests';
 import { mapGhRepositoriesToDomain, mapGhUserToDomain } from './mapper';
+import { searchUserRepositories } from '../../services/httpClient/requests';
 
 export function* ghUserSaga() {
   yield takeLatest(SEARCH_USER_DATA, onSearchUserData);
@@ -30,18 +32,27 @@ export function* onSearchUserData({
       userNameResult,
     );
     const userMapped = mapGhUserToDomain(userResponse);
-    const reposResponse = yield call(
-      requests.searchUserRepositories,
-      httpClient,
-      userNameResult,
-    );
-    const reposMapped = mapGhRepositoriesToDomain(reposResponse);
     yield put(
       searchUserDataSuccess({
         user: userMapped,
-        repositories: reposMapped,
       }),
     );
+
+    try {
+      const reposResponse = yield call(
+        requests.searchUserRepositories,
+        httpClient,
+        userNameResult,
+      );
+      const reposMapped = mapGhRepositoriesToDomain(reposResponse);
+      yield put(
+        searchUserRepositoriesSuccess({
+          repositories: reposMapped,
+        }),
+      );
+    } catch (error) {
+      // api returns 422 if user has no public repositories and we don't want to handle that
+    }
   } catch (error) {
     yield put(searchUserDataFailure());
     yield handleRequestError(error);

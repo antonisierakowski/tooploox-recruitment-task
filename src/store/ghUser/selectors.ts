@@ -1,7 +1,6 @@
 import { RootState } from '../types';
 import { GhRepository, GhUser, GhUserState } from './types';
 import { isEmpty } from 'lodash';
-import { createSelector } from 'reselect';
 
 export const selectGhUserState = (state: RootState): GhUserState =>
   state.ghUserState;
@@ -27,13 +26,17 @@ export const selectCurrentGhUserRepository = (state: RootState, id: number) => {
   return repositories.find(repo => repo.id === id);
 };
 
-export const selectShouldRenderResults = createSelector(
-  selectCurrentGhUser,
-  selectCurrentGhUserRepositories,
-  (currentGhUser, currentGhUserRepositories): boolean => {
-    return !(isEmpty(currentGhUser) && isEmpty(currentGhUserRepositories));
-  },
-);
+export const selectShouldRenderUserResults = (state: RootState): boolean => {
+  const currentGhUser = selectCurrentGhUser(state);
+  return !isEmpty(currentGhUser);
+};
+
+export const selectShouldRenderUserRepositoriesResults = (
+  state: RootState,
+): boolean => {
+  const currentGhUserRepositories = selectCurrentGhUserRepositories(state);
+  return !isEmpty(currentGhUserRepositories);
+};
 
 export const selectIsLoading = (state: RootState): boolean =>
   selectGhUserState(state).isLoading;

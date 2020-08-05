@@ -1,19 +1,24 @@
 import {
   selectIsLoading,
-  selectShouldRenderResults,
+  selectShouldRenderUserRepositoriesResults,
+  selectShouldRenderUserResults,
 } from '../../../store/ghUser/selectors';
 import { useSelector } from 'react-redux';
 import { RootState } from '../../../store/types';
 
 type UseShouldRenderResultsHook = {
-  shouldRenderResults: boolean;
+  shouldRenderUserResults: boolean;
+  shouldRenderRepositoriesResults: boolean;
   isLoading: boolean;
 };
 
 export const useShouldRenderResults = (): UseShouldRenderResultsHook => {
   return {
-    shouldRenderResults: useSelector((state: RootState) =>
-      selectShouldRenderResults(state),
+    shouldRenderUserResults: useSelector((state: RootState) =>
+      selectShouldRenderUserResults(state),
+    ),
+    shouldRenderRepositoriesResults: useSelector((state: RootState) =>
+      selectShouldRenderUserRepositoriesResults(state),
     ),
     isLoading: useSelector((state: RootState) => selectIsLoading(state)),
   };

@@ -5,8 +5,12 @@ import {
   SEARCH_USER_DATA,
   SEARCH_USER_DATA_FAILURE,
   SEARCH_USER_DATA_SUCCESS,
+  SEARCH_USER_REPOSITORIES_SUCCESS,
 } from './constants';
-import { SearchUserDataSuccessPayload } from './actions';
+import {
+  SearchUserDataSuccessPayload,
+  SearchUserRepositoriesSuccessPayload,
+} from './actions';
 
 const initialState: GhUserState = {
   isLoading: false,
@@ -27,13 +31,19 @@ export const ghUserReducer: Reducer<GhUserState, Action> = (
       };
     }
     case SEARCH_USER_DATA_SUCCESS: {
-      const {
-        user,
-        repositories,
-      } = action.payload as SearchUserDataSuccessPayload;
+      const { user } = action.payload as SearchUserDataSuccessPayload;
       return {
         isLoading: false,
         user,
+        repositories: [],
+      };
+    }
+    case SEARCH_USER_REPOSITORIES_SUCCESS: {
+      const {
+        repositories,
+      } = action.payload as SearchUserRepositoriesSuccessPayload;
+      return {
+        ...state,
         repositories,
       };
     }
