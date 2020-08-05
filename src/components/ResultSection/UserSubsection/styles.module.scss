@@ -1,3 +1,11 @@
+@import "src/styles/mixins";
+
+.userSubsection {
+  @include breakpoint-large() {
+    width: 35%;
+  }
+}
+
 .nameAndAvatar {
   display: flex;
   align-items: flex-end;

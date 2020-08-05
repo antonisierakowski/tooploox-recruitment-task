@@ -8,7 +8,7 @@ export const ReposSubsection: React.FC = (): React.ReactElement => {
 
   return (
     <div className={styles.repositoriesSubsection}>
-      <h3>Top repositories</h3>
+      <h3 className={styles.heading}>Top repositories</h3>
       {repositories.map(repo => (
         <RepositoryEntry id={repo.id} key={repo.id} />
       ))}

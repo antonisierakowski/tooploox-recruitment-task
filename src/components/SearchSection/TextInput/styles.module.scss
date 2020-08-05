@@ -1,5 +1,6 @@
 @import 'src/styles/colors';
 @import 'src/styles/variables';
+@import 'src/styles/mixins';
 
 .textInput {
   height: 35px;
@@ -20,6 +21,10 @@
     outline: none;
     background-color: $input-bg-color-focused;
   }
+
+  @include breakpoint-large() {
+    margin-right: 15px;
+  }
 }
 
 .inputWithIcon {
@@ -29,4 +34,7 @@
 .icon {
   position: absolute;
   left: 25px;
+  @include breakpoint-large() {
+    left: 55px;
+  }
 }

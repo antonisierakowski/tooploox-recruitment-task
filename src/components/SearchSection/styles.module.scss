@@ -2,7 +2,11 @@
 @import 'src/styles/mixins';
 
 .section {
-  padding: 20px;
+  padding: $global-padding-small;
   background: $secondary-bg-color;
   @include box-shadow();
+
+  @include breakpoint-large() {
+    padding: $global-padding-small $global-padding-large;
+  }
 }

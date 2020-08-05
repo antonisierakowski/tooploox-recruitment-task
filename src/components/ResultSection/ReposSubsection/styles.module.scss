@@ -1,0 +1,15 @@
+@import "src/styles/mixins";
+
+.repositoriesSubsection {
+  @include breakpoint-large() {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.heading {
+  @include breakpoint-large() {
+    margin-top: 0;
+  }
+}

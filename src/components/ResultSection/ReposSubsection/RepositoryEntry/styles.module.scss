@@ -9,6 +9,10 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: space-between;
+  @include breakpoint-large() {
+    width: 100%;
+    min-width: 250px;
+  }
 }
 
 .starsIndicator {
