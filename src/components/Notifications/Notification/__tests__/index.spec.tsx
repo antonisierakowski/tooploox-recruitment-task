@@ -89,8 +89,9 @@ describe('getIconType helper function', () => {
 
 const mapNotificationsStateToRootState = (
   domainState: NotificationsState,
-): Partial<RootState> => {
+): RootState => {
   return {
     notificationsState: domainState,
+    ghUserState: null,
   };
 };

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match to the generated snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="repository"
+  >
+    <a
+      href="test"
+    >
+      test1
+    </a>
+    <span
+      class="starsIndicator"
+    >
+      <svg
+        aria-hidden="true"
+        class="MuiSvgIcon-root icon"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <path
+          d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+        />
+      </svg>
+      1
+    </span>
+  </div>
+</DocumentFragment>
+`;

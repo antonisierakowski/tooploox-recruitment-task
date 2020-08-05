@@ -3,7 +3,7 @@ import styles from './styles.module.scss';
 
 type Props = {
   caption: string;
-  onClick: (event: SyntheticEvent, ...args: any[]) => void;
+  onClick?: (event: SyntheticEvent, ...args: any[]) => void;
   type?: 'submit' | 'button';
 };
 

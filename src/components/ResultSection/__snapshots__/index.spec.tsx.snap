@@ -1,0 +1,116 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match to the generated snapshot 1`] = `
+<DocumentFragment>
+  <section
+    class="section"
+  >
+    <div
+      class="userSubsection"
+    >
+      <div
+        class="nameAndAvatar"
+      >
+        <div
+          class="imageContainer"
+        >
+          <img
+            alt="Github user avatar"
+            class="image"
+            src="testAvtrUrl"
+          />
+        </div>
+        <h3
+          class="heading"
+        >
+          testName
+        </h3>
+      </div>
+      <p>
+        testBio
+      </p>
+    </div>
+    <div
+      class="repositoriesSubsection"
+    >
+      <h3
+        class="heading"
+      >
+        Top repositories
+      </h3>
+      <div
+        class="repository"
+      >
+        <a
+          href="test"
+        >
+          test1
+        </a>
+        <span
+          class="starsIndicator"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          1
+        </span>
+      </div>
+      <div
+        class="repository"
+      >
+        <a
+          href="test"
+        >
+          test2
+        </a>
+        <span
+          class="starsIndicator"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          3
+        </span>
+      </div>
+      <div
+        class="repository"
+      >
+        <a
+          href="test"
+        >
+          test3
+        </a>
+        <span
+          class="starsIndicator"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root icon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"
+            />
+          </svg>
+          5
+        </span>
+      </div>
+    </div>
+  </section>
+</DocumentFragment>
+`;

@@ -2,9 +2,9 @@ import React, { FormEvent } from 'react';
 import styles from './styles.module.scss';
 
 type Props = {
-  placeholder: string;
-  value: string;
-  onChange: (event: FormEvent<HTMLInputElement>) => void;
+  placeholder?: string;
+  value?: string;
+  onChange?: (event: FormEvent<HTMLInputElement>) => void;
   icon?: any;
 };
 
