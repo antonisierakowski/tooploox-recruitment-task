@@ -17,6 +17,7 @@
     "@types/shortid": "^0.0.29",
     "@types/testing-library__dom": "^7.5.0",
     "axios": "^0.19.2",
+    "axios-mock-adapter": "^1.18.2",
     "husky": "^4.2.5",
     "lint-staged": "^10.2.11",
     "lodash": "^4.17.19",

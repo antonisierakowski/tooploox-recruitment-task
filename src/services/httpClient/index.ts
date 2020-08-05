@@ -4,6 +4,7 @@ import { StatusCode } from './types';
 import { HttpClientInterface } from './interface';
 import { GITHUB_BASE_DOMAIN } from '../../constants';
 
+// use this only for tests
 export const __axiosInstance = Axios.default.create({
   baseURL: GITHUB_BASE_DOMAIN,
 });
