@@ -11,7 +11,6 @@ import { handleRequestError } from '../utils';
 import httpClient from '../../services/httpClient';
 import * as requests from '../../services/httpClient/requests';
 import { mapGhRepositoriesToDomain, mapGhUserToDomain } from './mapper';
-import { searchUserRepositories } from '../../services/httpClient/requests';
 
 export function* ghUserSaga() {
   yield takeLatest(SEARCH_USER_DATA, onSearchUserData);
