@@ -12,12 +12,16 @@ export const Notification: React.FC<Props> = ({ id }) => {
   const { notification, onClose } = useNotification(id);
 
   return (
-    <div className={styles.notification}>
+    <div className={styles.notification} data-testid={id}>
       <div className={styles.notificationBody}>
         {getIconType(notification.notificationType)}
         <p className={styles.notificationText}>{notification.textContent}</p>
       </div>
-      <Close className={styles.closeIcon} onClick={onClose} />
+      <Close
+        className={styles.closeIcon}
+        onClick={onClose}
+        data-testid={`closeIcon_${id}`}
+      />
     </div>
   );
 };
@@ -25,13 +29,13 @@ export const Notification: React.FC<Props> = ({ id }) => {
 const getIconType = (notificationType: NotificationType) => {
   switch (notificationType) {
     case NotificationType.SUCCESS: {
-      return <Done />;
+      return <Done data-testid="successIcon" />;
     }
     case NotificationType.FAILURE: {
-      return <Error />;
+      return <Error data-testid="failureIcon" />;
     }
     default: {
-      return <Info />;
+      return <Info data-testid="fallbackIcon" />;
     }
   }
 };
